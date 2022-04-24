@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Form bases on MVC structure</title>
+    <script defer type="module" src="./controler.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <form action="" method="POST" class="form" id="form-1">
+        <h3 class="heading">Form MVC</h3>
+        <p class="desc">Designed by F8</p>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Fullname</label>
+          <input
+            id="fullname"
+            name="fullname"
+            type="text"
+            placeholder="VD: Frlix Tran"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder="VD: email@domain.com"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter password"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password_confirmation" class="form-label"
+            >Password Confirm</label
+          >
+          <input
+            id="password_confirmation"
+            name="password_confirmation"
+            placeholder="Re-enter password"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Sign up</button>
+      </form>
+
+      <form action="" method="POST" class="form" id="form-2">
+        <h3 class="heading">Form MVC</h3>
+        <p class="desc">Designed by F8</p>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="fullname" class="form-label">Fullname</label>
+          <input
+            id="fullname"
+            name="fullname"
+            type="text"
+            placeholder="VD: Frlix Tran"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="text"
+            placeholder="VD: email@domain.com"
+            class="form-control"
+          />
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Login</button>
+      </form>
+    </div>
+  </body>
+</html>
