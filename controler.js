@@ -4,6 +4,9 @@ import emailViews from './View/emailView.js';
 import passwordViews from './View/passwordView.js';
 import passwordConfirmViews from './View/passwordConfirmView.js';
 import fileViews from './View/fileView.js';
+import selectViews from './View/selectView.js';
+import radioViews from './View/radioView.js';
+import checkViews from './View/checkBoxView.js';
 
 const hasInput = function (data) {
   return Boolean(data.trim());
@@ -66,10 +69,46 @@ const controlConfirm = function (view, data) {
 };
 
 const controlFile = function (view, data) {
-  if (data === '') {
+  if (!data) {
     view.isError(...view.getErrorSelector(), view.fileErrorMessage);
     return;
   }
+};
+
+const controlSelect = function (view, data) {
+  if (!data) {
+    view.isError(...view.getErrorSelector(), view.selectErrorMessage);
+    return;
+  }
+};
+
+// Use IIFE in "controlForm Function" help reuse "view Variable"
+const controlForm = function (index) {
+  // Radio
+  (() => {
+    const view = radioViews[index];
+    const radios = view.getRadioSelectors();
+
+    if (!radios.length) return;
+
+    const checked = radios.some(radio => radio.checked);
+
+    if (!checked)
+      view.isError(...view.getErrorSelector(), view.radioErrorMessage);
+  })();
+
+  // Checkbox
+  (() => {
+    const view = checkViews[index];
+    const checkboxs = view.getCheckboxSelectors();
+
+    if (!checkboxs.length) return;
+
+    const checked = checkboxs.some(checkbox => checkbox.checked);
+
+    if (!checked)
+      view.isError(...view.getErrorSelector(), view.checkboxErrorMessage);
+  })();
 };
 
 const init = function () {
@@ -108,8 +147,17 @@ const init = function () {
     if (input) view.isRequired(input, controlFile.bind(null, view));
   });
 
+  // Select
+  selectViews.forEach(view => {
+    const input = view.getSelectSelector();
+
+    if (input) view.isRequired(input, controlSelect.bind(null, view));
+  });
+
+  // Radio and Checkbox (checked at submit event)
+
   // Sunmit
-  forms.forEach(form => form.isSubmit());
+  forms.forEach((form, index) => form.isSubmit(controlForm, index));
 };
 
 init();

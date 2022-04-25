@@ -6,7 +6,7 @@
 html {
   color: #333;
   font-size: 62.5%;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 .main {
   background: #f1f1f1;
@@ -103,4 +103,26 @@ html {
 
 .spacer {
   margin-top: 36px;
+}
+
+/* Style added */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+}
+
+.check-item-label {
+  margin-left: 6px;
 }

@@ -59,9 +59,22 @@ class FormView {
     });
   }
 
-  isSubmit() {
+  isOnCheck(inputContainerClass, inputClass, groupSelector, errorSelector) {
+    const inputContainer =
+      this.parentElement.querySelector(inputContainerClass);
+
+    if (!inputContainer) return;
+
+    inputContainer.addEventListener('click', event => {
+      if (event.target.closest(inputClass))
+        this.#toggleError(groupSelector, errorSelector);
+    });
+  }
+
+  isSubmit(handler, index) {
     this.parentElement.addEventListener('submit', function (event) {
       event.preventDefault();
+      handler(index);
     });
   }
 }

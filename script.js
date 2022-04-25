@@ -12,6 +12,13 @@ const emailInputId = '#email';
 const passwordInputId = '#password';
 const passwordConfirmId = '#password_confirmation';
 const fileId = '#file';
+const selectId = '#city';
+
+// Input Class
+const radioContainerClass = '.gender';
+const radioClass = '.radio';
+const checkboxContainerClass = '.rgb';
+const checkboxClass = '.checkbox';
 
 // Error
 // Name has 1 error
@@ -23,14 +30,18 @@ const emailErrorInvalidMessage = 'Invalid email! Please try again';
 const passwordEmptyMessage = 'Empty Input! Please try again';
 const passwordInvalidMessage =
   'Minimum 8 characters includes uppercase-lowercase letter and number';
-// File has 1 error
-const fileErrorMessage = 'No file chosen! Please try again';
-
 // Password confirm has 3 errors
 const passwordFirstMessage = 'Enter your password first!';
 const passwordConfirmEmptyMessage = 'Empty Input! Please try again';
 const passwordConfirmMessage =
   'Password confirm does not match! Please try again';
+// File has 1 error
+const fileErrorMessage = 'No file chosen! Please try again';
+// Select has 1 error
+const selectErrorMessage = 'Empty Input! Please try again';
+// Radio has 1 error
+const radioErrorMessage = 'Chose your gender';
+const checkboxErrorMessage = 'Make a choice';
 
 export default formsData;
 export {
@@ -43,6 +54,12 @@ export {
   passwordInputId,
   passwordConfirmId,
   fileId,
+  selectId,
+  // Input Class
+  radioContainerClass,
+  radioClass,
+  checkboxContainerClass,
+  checkboxClass,
   // Input Error Message
   nameErrorMessage,
   emailErrorEmptyMessage,
@@ -53,4 +70,7 @@ export {
   passwordConfirmMessage,
   passwordConfirmEmptyMessage,
   fileErrorMessage,
+  selectErrorMessage,
+  radioErrorMessage,
+  checkboxErrorMessage,
 };
