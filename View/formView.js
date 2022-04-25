@@ -5,13 +5,15 @@ import formsData, {
   invalidClass,
   passwordConfirmId,
 } from '../script.js';
+import debouncePassword from '../helps/debouncePassword.js';
 
 class FormView {
   parentElement;
   groupClass = groupClass;
   errorClass = errorClass;
   invalidClass = invalidClass;
-  #passwordConfirmId = passwordConfirmId;
+  passwordConfirmId = passwordConfirmId;
+  timeout = 0.3;
 
   constructor(form) {
     if (form) this.parentElement = $(form);
@@ -44,13 +46,16 @@ class FormView {
 
     if (!input) return;
 
-    input.addEventListener('input', () => {
-      if (input.type === 'password') {
-        this.parentElement.querySelector(this.#passwordConfirmId).value = '';
-        console.log('Clear');
-      }
+    const handleClearPassword = debouncePassword(() => {
+      this.parentElement.querySelector(this.passwordConfirmId).value = '';
+    }, this.timeout);
 
+    input.addEventListener('input', () => {
       this.#toggleError(groupSelector, errorSelector);
+
+      if (input.name === 'password') {
+        handleClearPassword();
+      }
     });
   }
 

@@ -3,6 +3,7 @@ import nameInputViews from './View/nameInputView.js';
 import emailViews from './View/emailView.js';
 import passwordViews from './View/passwordView.js';
 import passwordConfirmViews from './View/passwordConfirmView.js';
+import fileViews from './View/fileView.js';
 
 const hasInput = function (data) {
   return Boolean(data.trim());
@@ -58,11 +59,15 @@ const controlConfirm = function (view, data) {
     return;
   }
 
-  console.log(data);
-  console.log(currentPassword);
-
   if (data !== currentPassword) {
     view.isError(...view.getErrorSelector(), view.passwordConfirmMessage);
+    return;
+  }
+};
+
+const controlFile = function (view, data) {
+  if (data === '') {
+    view.isError(...view.getErrorSelector(), view.fileErrorMessage);
     return;
   }
 };
@@ -94,6 +99,13 @@ const init = function () {
     const input = view.getConfirmSelector();
 
     if (input) view.isRequired(input, controlConfirm.bind(null, view));
+  });
+
+  // File
+  fileViews.forEach(view => {
+    const input = view.getFileSelector();
+
+    if (input) view.isRequired(input, controlFile.bind(null, view));
   });
 
   // Sunmit

@@ -11,6 +11,7 @@ const nameInputId = '#fullname';
 const emailInputId = '#email';
 const passwordInputId = '#password';
 const passwordConfirmId = '#password_confirmation';
+const fileId = '#file';
 
 // Error
 // Name has 1 error
@@ -22,6 +23,8 @@ const emailErrorInvalidMessage = 'Invalid email! Please try again';
 const passwordEmptyMessage = 'Empty Input! Please try again';
 const passwordInvalidMessage =
   'Minimum 8 characters includes uppercase-lowercase letter and number';
+// File has 1 error
+const fileErrorMessage = 'No file chosen! Please try again';
 
 // Password confirm has 3 errors
 const passwordFirstMessage = 'Enter your password first!';
@@ -34,10 +37,13 @@ export {
   groupClass,
   errorClass,
   invalidClass,
+  // Input ID
   nameInputId,
   emailInputId,
   passwordInputId,
   passwordConfirmId,
+  fileId,
+  // Input Error Message
   nameErrorMessage,
   emailErrorEmptyMessage,
   emailErrorInvalidMessage,
@@ -46,4 +52,5 @@ export {
   passwordFirstMessage,
   passwordConfirmMessage,
   passwordConfirmEmptyMessage,
+  fileErrorMessage,
 };
