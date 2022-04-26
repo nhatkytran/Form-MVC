@@ -2,6 +2,11 @@ const firstForm = '#form-1';
 const secondForm = '#form-2';
 const formsData = [firstForm, secondForm];
 
+const actions = {
+  signup: 'signup',
+  login: 'login',
+};
+
 const groupClass = '.form-group';
 const errorClass = '.form-message';
 const invalidClass = 'invalid';
@@ -48,6 +53,8 @@ export {
   groupClass,
   errorClass,
   invalidClass,
+  // Actions
+  actions,
   // Input ID
   nameInputId,
   emailInputId,

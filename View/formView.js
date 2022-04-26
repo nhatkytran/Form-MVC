@@ -53,7 +53,10 @@ class FormView {
     input.addEventListener('input', () => {
       this.#toggleError(groupSelector, errorSelector);
 
-      if (input.name === 'password') {
+      if (
+        input.name === 'password' &&
+        this.parentElement.querySelector(this.passwordConfirmId)
+      ) {
         handleClearPassword();
       }
     });
